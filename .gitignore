@@ -1,9 +1,6 @@
 
 *.pack
 
-
 node_module/
-
-
 *.env
 

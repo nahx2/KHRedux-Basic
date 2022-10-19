@@ -1,8 +1,10 @@
+import { async } from "@firebase/util";
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginGoogle } from "../service/authLogic";
-// 스프레드연산자, 얕은복사, 구조분해할당
+import { loginGoogle, logout } from "../service/authLogic";
+// spread 연산자, 얕은 복사, 구조분해할당 - 기초
 const ReduxHeader = () => {
   const dispatch = useDispatch();
   const number = useSelector((store) => store.number);
@@ -10,53 +12,49 @@ const ReduxHeader = () => {
   const empVO = useSelector((store) => store.empVO);
   const firebaseAuth = useSelector((store) => store.firebaseAuth);
   const googleProvider = useSelector((store) => store.googleProvider);
-  const [userd, setUserid] = useState();
+  const [userId, setUserId] = useState();
   useEffect(() => {
-    4;
-
-    setUserid(window.localStorage.getItem("userId"));
+    setUserId(window.localStorage.getItem("userId"));
   }, []);
+  // const { number, mem_name } = useSelector((store) => store.number);
   const handleGoogle = async () => {
     try {
       const result = await loginGoogle(firebaseAuth, googleProvider);
       console.log(result.uid);
       window.localStorage.setItem("userId", result.uid);
-      window.localStorage.reload();
+      window.location.reload();
     } catch (e) {
       console.log(e);
     }
   };
-  //const { number, mem_name } = useSelector((store) => store);
   return (
-    <div>
-      <h1>redex 헤더글</h1>
+    <div className="sub_container">
+      <h2>헤더 섹션</h2>
       <div style={{ display: "flex" }}>
         <Link to="/" className="nav-link">
           Home
         </Link>
         &nbsp;&nbsp;
-        <Link to="/board" className="nav-link">
+        <Link to="/notice" className="nav-link">
           게시판
         </Link>
       </div>
       {userId ? (
-        <button
-          variant="primary"
+        <Button
+          variant="dark"
           onClick={() => {
             logout(firebaseAuth);
-            window.localStorage.reload();
+            window.location.reload();
           }}
         >
           Logout
-        </button>
+        </Button>
       ) : (
-        <button variant="primary" onClick={handleGoogle}>
-          Google
-        </button>
+        <Button onClick={handleGoogle}>Google</Button>
       )}
       번호 : {number}
-      이름 : {mem_name}
-      &nbsp;&nbsp; 사원정보:
+      &nbsp;&nbsp; 이름 : {mem_name}
+      &nbsp;&nbsp; 사원정보 :
       {empVO && `사원번호:${empVO.empno}, 사원명:${empVO.ename}`}
     </div>
   );

@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
+import ReduxBottom from "../include/ReduxBottom";
+import ReduxHeader from "../include/ReduxHeader";
 
-function NoticePage(props) {
+const NoticePage = (props) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <ReduxHeader />
+      <div className="container">공지사항</div>
+      <ReduxBottom />
+    </>
   );
-}
+};
 
 export default NoticePage;

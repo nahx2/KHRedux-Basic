@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const KakaoMapTest = (props) => {
+const KakaoMapTest = () => {
   /* global kakao */
   useEffect(() => {
     const container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
@@ -11,7 +11,7 @@ const KakaoMapTest = (props) => {
     };
 
     const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-  });
+  }, []);
   return (
     <>
       <div id="map" style={{ width: 500, height: 400 }}></div>

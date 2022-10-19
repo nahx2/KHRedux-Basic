@@ -1,12 +1,10 @@
-import Bottom from "./components/include/Bottom";
 import Header from "./components/include/Header";
-import "./App.css";
+import Bottom from "./components/include/Bottom";
 import { useState } from "react";
-import KakaoMapTest from "./kakao/KakaoMapTest";
-import "bootstrap/dist/css/bootstrap.min.css";
+import TomatoTalk from "./components/talk/TomatoTalk";
 
 const App = () => {
-  const [number, setNumber] = useState(1);
+  const [number, setNumber] = useState(0);
   const increase = () => {
     setNumber(number + 1);
   };
@@ -14,14 +12,13 @@ const App = () => {
     setNumber(number - 1);
   };
   return (
-    <>
-      <div className="container">
-        <h1>React Redux</h1>
-        <Header number={number} />
-        <KakaoMapTest />
-        <Bottom increase={increase} decrease={decrease} />
-      </div>
-    </>
+    <div className="container">
+      <Header number={number} />
+      <h1>Hello Redux</h1>
+
+      <TomatoTalk />
+      <Bottom increase={increase} decrease={decrease} />
+    </div>
   );
 };
 

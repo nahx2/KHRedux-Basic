@@ -6,12 +6,12 @@ const MainPage = () => {
   return (
     <>
       <div className="sub_container">
-        <h2>컨텐츠영역</h2>
+        <h2>컨텐츠 영역</h2>
         <hr />
         {depts &&
           depts.map((dept, i) => (
             <h3 key={i}>
-              {dept.DEPTNO},{dept.DNAME},{dept.LOC}
+              {dept.DEPTNO}, {dept.DNAME}, {dept.LOC}
             </h3>
           ))}
       </div>
