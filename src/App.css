@@ -1,0 +1,13 @@
+.container {
+  height: 800;
+  border: 2px solid darkgray;
+}
+
+.sub_container {
+  height: 400;
+  border: 2px solid blue;
+}
+
+div {
+  padding: 10px;
+}
