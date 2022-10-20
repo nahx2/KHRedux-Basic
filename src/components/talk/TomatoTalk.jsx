@@ -1,23 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MessageLi } from "../style/TalkStyle";
 
-/* const firebaseConfig = {
-  apiKey: "AIzaSyCIS_v1-BdrTwGF2BQrGgPoiDd2u1A6XZw",
-  authDomain: "virtual-primer-354906.firebaseapp.com",
-  databaseURL:
-    "https://virtual-primer-354906-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "virtual-primer-354906",
-  storageBucket: "virtual-primer-354906.appspot.com",
-  messagingSenderId: "442922054622",
-  appId: "1:442922054622:web:aaa9cf4f99a2a45ef8a34f",
-  measurementId: "G-DM03L94YWH",
-}; */
+const firebaseConfig = {
+  apiKey: "AIzaSyAyqQDaAtYjI27byygLvNw22mQJBpTIyF0",
+  authDomain: "redux-b.firebaseapp.com",
+  projectId: "redux-b",
+  storageBucket: "redux-b.appspot.com",
+  messagingSenderId: "30459355915",
+  appId: "1:30459355915:web:2fef5059d5d4b90937780e",
+  measurementId: "G-5FBTGCBFT1",
+};
 
-//const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase();
 
 const TomatoTalk = (props) => {
